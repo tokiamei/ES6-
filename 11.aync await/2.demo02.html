@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function fun() {
+        let a = await 1;
+        let b = await new Promise((resolve, reject) => {
+          setTimeout(function () {
+            resolve("setTimeout");
+          }, 3000);
+        });
+        let c = await (function () {
+          return "function";
+        })();
+        console.log(a, b, c);
+      }
+      fun(); // 3秒后输出： 1 "setTimeout" "function"
+    </script>
+  </body>
+</html>

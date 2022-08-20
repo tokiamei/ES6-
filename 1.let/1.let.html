@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let 用法</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // let 不能重复声明
+    // let a = 'a'
+    // let a = 'b'
+
+    /* let 可以声明不赋值 */
+    // let a
+    // console.log(a) // undefined
+
+    /* var 可以重复声明 */
+    // var a = 'a'
+    // var a = 'b'
+    // console.log(a, typeof a)
+
+    // let a, b, c;
+    // let aa = "1", bb = [1, 2, 2]; 
+
+    // 块级作用域 
+    // {
+    //     let aa = 3
+    // }
+    // console.log(aa) // 访问不到，aa is not defined
+
+    // 不存在变量提升
+    // console.log(song)
+    // var song = "暗夜猫娘" // undefined，不会报错
+    // console.log(song)
+    // let song = "暗夜猫娘" // 直接报错
+
+    /* let me = "钢铁侠";
+    function Fly() {
+        // let me = "钢铁侠";
+        console.log(me);
+    }
+    Fly(); */
+</script>
+</html>

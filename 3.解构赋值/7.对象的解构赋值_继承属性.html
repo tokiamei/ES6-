@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的解构赋值_继承属性</title>
+</head>
+<body>
+    <script>
+        /* 解构赋值，可以取到对象原型中的属性
+            如果找不到，就会赋值 undefined
+        */
+        const obj = { name: "混沌魔君", age: 60 }
+        obj.__proto__.sex = "none"
+        const { sex, a } = obj
+        console.log(sex, a)
+    </script>
+</body>
+</html>

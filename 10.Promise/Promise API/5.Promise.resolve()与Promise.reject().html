@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.resolve()与Promise.reject()</title>
+</head>
+<body>
+    <script>
+        //#region 
+        /* new Promise( (resolve, reject) => {
+            resolve("成功")
+        } )
+        .then( data => console.log(data) ) */
+
+        // 以下写法等同于上面
+        // Promise.resolve("成功").then( data => console.log(data) )
+        
+
+        // 参数：一般参数，同上
+        // Promise 参数，当 Promise.resolve() 接收的是 Promise 对象时，直接返回这个 Promise 对象，什么都不做
+        /* const p1 = new Promise( (resolve, reject) => {
+            setTimeout( resolve, 1000, "我执行了~~" )
+            // 等价于
+            // setTimeout( () => { resolve("我执行了~~") }, 1000 )
+        } )  */
+        // Promise.resolve(p1).then( data => console.log(data) )
+
+        // const p2 = Promise.resolve(p1)
+
+        // 等价于
+        // p1.then( data => console.log(data) )
+        // console.log(p2 === p1) // true
+
+
+        // 一般的 Promise 中传 Promise 对象会怎么样
+        /* const p2 = new Promise( (resolve, reject) => {
+            resolve(p1)
+        } )
+        p2.then( data => {console.log(data)} ) */
+        // console.log(p2 === p1) // false，then 方法的执行看 p1 的情况
+        //#endregion
+
+        
+        // const p0 = Promise.resolve('我是成功的 p0')
+        /* 参数传一个 失败的 Promise，结果是失败的 */
+        const p1 = Promise.reject('我是失败的 p1')
+        Promise.resolve(p1).then(
+          (res) => console.log(res),
+          (err) => console.log(err)
+          )
+        </script>
+</body>
+</html>

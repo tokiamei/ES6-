@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 项对象中添加方法 up, down
+    const game = {
+        
+    };
+    const methods = {
+        up: Symbol(),
+        down: Symbol()
+    };
+    game[methods.up] = function() {
+        console.log("I CAN FLY");
+    }
+    game[methods.down] = function() {
+        console.log("I CAN CLIMB");
+    }
+    // console.log(game);
+
+    let say = Symbol('巅峰');
+    let youxi = {
+        name: "SEER",
+        [Symbol('巅峰')]: function () {
+            console.log("宇宙圣皇");
+        },
+        [Symbol("PVE")]: function () {
+            console.log("喜欢打野怪");
+        }
+    }
+
+
+
+</script>
+</html>

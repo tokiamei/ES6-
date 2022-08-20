@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const mySet = new Set(["a", 2])
+        // mySet.clear() // 清空 set 所有元素
+        // console.log(mySet.delete("a")) // true
+        // console.log(mySet.entries(), typeof mySet.entries())
+
+        const obj = { name: "X" }
+        mySet.add(obj)
+        mySet.add(obj)
+        console.log(mySet);
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+			/* 
+        定义一个 sendAjax 函数，对 xhr 的 get 请求进行封装:
+        该函数接收 4 个参数: url(请求地址)、data(参数对象)、success(成功的回调)、error(失败的回调)
+			*/
+      function sendAjax(url, data, success, error) {
+        const xhr = new XMLHttpRequest()
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status >= 200 && xhr.status < 300) success(xhr.response)
+							else error('请求失败 😈😈😈😈')
+            }
+          };
+
+          // 把请求参数转成地址形式
+          let str = ''
+          for (key in data) {
+            str += `${key}=${data[key]}&`
+          }
+          str = str.slice(0, -1)
+          url = url + '?' + str
+
+					xhr.open('GET', url)
+          xhr.responseType = 'json'
+          xhr.send()
+      }
+      sendAjax(
+          'http://gmall-h5-api.atguigu.cn/api/product/getBaseCategoryList', 
+          { categoryName: '电子书' },
+          (response) => { console.log('成功了', response) },
+          (err) => { console.log('失败了', err) }
+      )
+    </script>
+  </body>
+</html>

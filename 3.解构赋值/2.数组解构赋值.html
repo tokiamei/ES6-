@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组解构赋值</title>
+</head>
+<body>
+    <script>
+        /* 1.模式匹配 2.索引值相同的进行赋值 */
+        /* const arr = [3, 1, 5, 5]
+        // [a, b, c, d] = arr // 前面不写声明关键字就会报错
+        // const [a, b, c, d] = arr
+        // const [a, b, c] = arr // Uncaught ReferenceError: d is not defined
+        // var [a, b, c] = arr // Uncaught ReferenceError: d is not defined
+        const [a, b, c, d, e] = arr // OK
+        console.log(a, b ,c, d, e); // 3 1 5 5 undefined */
+
+        // console.log(a); // Uncaught ReferenceError: Cannot access 'a' before initialization
+        /* 小练习 */
+       /*  arr = [1, [2, 4, 5], 3]
+        const [a, b, c] = arr
+        console.log(a, b[2], c) */
+
+        /* 默认值 */
+        // const [a, b] = []
+        // 上面写法等价于：
+        // const [a, b] = [undefined, undefined]
+
+        // 写上默认值
+        /* const [a=1, b=2] = [] // a = 1, b = 2
+        console.log(a, b) */
+
+        /* 默认值的生效条件 */
+        // const [a=1, b=2] = [1, null] // 1 null
+        // const [a=1, b=2] = [3] // 3 2
+
+        /* 默认值表达式
+            如果默认值是表达式，默认值表达式是惰性求值的
+        */
+        const f = () => {
+            console.log("===============")
+            return 2
+        }
+        const [a=f()] = []
+        console.log(a);
+    </script>
+</body>
+</html>

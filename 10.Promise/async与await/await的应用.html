@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sendAjax(url) {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest()
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status >= 200 && xhr.status < 300) resolve(xhr.response)
+							else reject('请求失败 😈😈😈😈')
+            }
+          };
+
+					xhr.open('GET', url)
+          xhr.send()
+				})
+      }
+    
+    ;(async () => {
+      try {
+        const res1 = await sendAjax('https://autumnfish.cn/api/joke')
+        console.log('第一次请求成功', res1);
+        const res2 = await sendAjax('https://autumnfish.cn/api/joke')
+        console.log('第二次请求成功', res2);
+        const res3 = await sendAjax('https://autumnfish.cn/api/joke')
+        console.log('第三次请求成功', res3);
+      } catch (error) {
+        console.log(error);
+      }
+    })()
+  </script>
+</body>
+</html>

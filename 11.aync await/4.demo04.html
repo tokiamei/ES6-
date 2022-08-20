@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getSomething() {
+        return "something";
+      }
+      async function testAsync() {
+        return Promise.resolve("hello async");
+      }
+      async function test() {
+        let v1 = await getSomething();
+        let v2 = await testAsync();
+        console.log(v1, v2);
+      }
+      test();
+      console.log("我执行了");
+
+      //执行结果为:
+      //我执行了
+      //something,hello async
+    </script>
+  </body>
+</html>

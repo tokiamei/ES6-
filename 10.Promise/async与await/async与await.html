@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async与await</title>
+</head>
+<body>
+  <script>
+    const p1 = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // resolve('p1成功')
+        reject('p1失败')
+      }, 500);
+    })
+
+    ;(async () => {
+      try {
+        const res1 = await p1
+        console.log(res1);
+      } catch (error) {
+        console.log(error);
+      }
+    })()
+  </script>
+</body>
+</html>

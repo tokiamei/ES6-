@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <div class="container"></div>
+    <div class="container"></div>
+  </body>
+  <script>
+    // 1.拼接数组，concat 来实现
+    const name = ["张若尘", "黑暗之手", "不动明王", "木灵犀"];
+    const address = ["昆仑界", "黑暗大陆", "荒古", "天魔岭"];
+    const arr = name.concat(name); 
+    // console.log(arr); // ['张若尘', '黑暗之手', '不动明王', '木灵犀', '张若尘', '黑暗之手', '不动明王', '木灵犀']
+
+    // 扩展运算符实现
+    const array = [...name, ...address];
+    // console.log(array); // ['张若尘', '黑暗之手', '不动明王', '木灵犀', '昆仑界', '黑暗大陆', '荒古', '天魔岭']
+
+    // 2.数组克隆
+    const nameCopy = [...name];
+    // console.log(nameCopy); // ['张若尘', '黑暗之手', '不动明王', '木灵犀']
+
+    // 3.将伪数组转化为真正的数组
+    const container = document.querySelectorAll(".container");
+    console.log(container); // 其实是个对象
+    const containerReal = [...container];
+    console.log(containerReal); // [div.container, div.container, div.container]
+  </script>
+</html>

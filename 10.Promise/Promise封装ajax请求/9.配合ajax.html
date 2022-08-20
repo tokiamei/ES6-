@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            接口：https://autumnfish.cn/api/joke
+            【1】今天一女同事带来她的儿子到公司来玩。才7岁，好可爱！我想如果是我儿子该多好，突然想起电视剧有认干儿子的我就说了一句：“琪琪，我做你后妈好吗？”忽然女同事散发出杀气，我说错了吗？
+            【2】男:亲爱的，我们结婚吧! 女:结婚?那你得有房啊！ 男:难道没房就不能结婚了吗？ 女:你看啊，结婚了我们就要洞房，我负责出洞，那你肯定要负责出房啊！不然怎么叫洞房呢？ 男:.........:-):-):-)
+            */
+        const pro = new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = () => {
+                // 数据完全接收完毕
+                if (xhr.readyState === 4) {
+                    // console.log(xhr.status);
+                    if (xhr.status === 200) resolve(xhr.response) 
+                    else reject('请求失败 😈😈😈😈')
+                }
+            }
+            xhr.open('GET', 'https://autumnfish.cn/api/joke')
+            xhr.send()
+        })
+
+        pro.then(
+            (value) => {
+                console.log(value);
+            },
+            (reason) => {
+                console.log(reason);
+            }
+        )
+    </script>
+</body>
+</html>

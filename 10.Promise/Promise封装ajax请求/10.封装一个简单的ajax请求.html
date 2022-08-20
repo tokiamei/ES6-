@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+			/* 
+        api 接口【笑话】
+				url:http://gmall-h5-api.atguigu.cn/api/product/getBaseCategoryList
+			*/
+      function sendAjax(url, data) {
+        new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest()
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status >= 200 && xhr.status < 300) resolve(xhr.response.data)
+							else resolve('请求失败 😈😈😈😈')
+            }
+          };
+
+          // 把请求参数转成地址形式
+          let str = ''
+          for (key in data) {
+            str += `${key}=${data[key]}&`
+          }
+          str = str.slice(0, -1)
+          console.log(str);
+          url = url + '?' + str
+          console.log(url);
+          
+
+					xhr.open('GET', url)
+          xhr.responseType = 'json'
+          xhr.send()
+				})
+        .then(
+          (value) => console.log(value),
+          (reason) => console.log(reason)
+        )
+      }
+      sendAjax('http://gmall-h5-api.atguigu.cn/api/product/getBaseCategoryList', {
+        categoryName: '电子书',
+        // page: 1,
+        // cate: 2
+      })
+      // sendAjax('https://autumnfish.cn/api/joke')
+    </script>
+  </body>
+</html>

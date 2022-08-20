@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值基本用法</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* 对象形式需要解构后的名字等于原对象中的键值 */
+    // 1.数组
+    const F4 = ["重生之翼", "瀚宇星皇", "天启帝君", "混元天尊"];
+    let [cs, xh, tq, hy, aa] = F4
+    // console.log(cs, xh, tq, hy, aa); // 重生之翼 瀚宇星皇 天启帝君 混元天尊
+
+    // 2.对象
+    const hero = {name: "混元天尊", hobby: "Fight", sayhello: function() {console.log("====")}};
+    let {name, hobby, sayhello} = hero;
+    console.log(name, hobby, sayhello); // 混元天尊 Fight
+
+</script>
+</html>

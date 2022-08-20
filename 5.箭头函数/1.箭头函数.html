@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    // 传统解决 this 指向问题的方法
+    // const box = document.querySelector("#box");
+    // console.log(box);
+    // box.addEventListener("click", function() {
+    //     console.log(this);
+    //     let _this = this
+    //     setTimeout(function() {
+    //         console.log(this);
+    //         // box.style.background = "deeppink";
+    //         _this.style.background = "deeppink";
+    //     }, 2000)
+    // })
+
+    // 箭头函数解决
+    const box = document.querySelector("#box");
+    box.addEventListener("click", function() { // 这里不能写箭头函数
+        console.log(this);
+        setTimeout(() => {
+            console.log(this);
+            // box.style.background = "deeppink";
+            this.style.background = "deeppink";
+        }, 2000)
+    })
+
+</script>
+</html>

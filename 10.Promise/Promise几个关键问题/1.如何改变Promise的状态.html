@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如何改变Promise的状态</title>
+</head>
+<body>
+  <script>
+    /* 引擎抛异常导致状态发生变化 */
+    //#region 
+    /* new Promise((resolve, reject) => {
+      console.log(a)
+    })
+    .then(
+      (value) => console.log('成功+', value),
+      (reason) => console.log('失败了', reason)
+    ) */
+    //#endregion
+
+    /* 如果状态已经成功了，状态便不会再发生变化 */
+    //#region 
+    /* new Promise((resolve, reject) => {
+      resolve('🦄🦄🦄')
+      console.log(a)
+    })
+    .then(
+      (value) => console.log('成功+', value),
+      (reason) => console.log('失败了', reason)
+    ) */
+    //#endregion
+
+    /* 手动抛异常 */
+    //#region 
+    new Promise((resolve, reject) => {
+      throw 10000
+      resolve('====')
+    })
+    .then(
+      (value) => console.log('成功+', value),
+      (reason) => console.log('失败了', reason)
+    )
+    //#endregion
+  </script>
+</body>
+</html>

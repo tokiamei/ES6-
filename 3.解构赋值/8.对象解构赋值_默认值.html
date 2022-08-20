@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象解构赋值【默认值】</title>
+</head>
+<body>
+    <script>
+        /* 【默认值】 */
+        /* const obj = { name: "混沌魔君", age: 60 }
+        const { name = "混元天尊" } = {}
+        console.log(name); */
+
+        /* 将一个已经声明的变量用于解构赋值
+            如果讲一个已经声明的变量用于对象的解构赋值，整个赋值在圆括号中进行
+        */
+        let x = 2
+        ;({ x } = { x: 1 })
+        console.log(x)
+    </script>
+</body>
+</html>

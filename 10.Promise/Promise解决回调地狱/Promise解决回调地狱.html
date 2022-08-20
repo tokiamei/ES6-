@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise解决回调地狱</title>
+</head>
+<body>
+  <script>
+    function sendAjax(url) {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest()
+          xhr.onreadystatechange = () => {
+            if (xhr.readyState === 4) {
+              if (xhr.status >= 200 && xhr.status < 300) resolve(xhr.response)
+							else reject('请求失败 😈😈😈😈')
+            }
+          };
+
+					xhr.open('GET', url)
+          xhr.send()
+				})
+      }
+    
+    /* 发送第一次发请求 */
+    sendAjax('https://autumnfish.cn/api/joke11')
+    .then(
+      (value) => { 
+        console.log('第一次请求成功++', value)
+        /* 发送第二次请求 */
+        return sendAjax('https://autumnfish.cn/api/joke')
+      },
+      (reason) => {
+        console.log('第一次请求失败', reason)
+      }
+    )
+    .then(
+      (value) => { 
+        console.log('第二次请求成功++', value)
+        /* 发送第三次请求 */
+        return sendAjax('https://autumnfish.cn/api/joke')
+      },
+      (reason) => {
+        console.log('第二次请求失败', reason)
+      }
+    )
+    .then(
+        (value) => { 
+          console.log('第三次请求成功++', value)
+        },
+        (reason) => {
+          console.log('第三次请求失败', reason)
+        }
+      )
+  </script>
+</body>
+</html>

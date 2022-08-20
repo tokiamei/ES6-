@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 创建 Symbol
+    let a = Symbol();
+    // let b = new Symbol(); // Symbol is not a constructor，不是构造函数
+    // console.log("a = "+ a, typeof a); // 1.Symbol.html:52 Uncaught TypeError: Cannot convert a Symbol value to a string
+    // console.log("b = " + b, typeof a);
+
+    // 括号传入的数据仅起到标识作用
+    let s1 = Symbol("罗莎");
+    let s2 = Symbol("罗莎");
+    // console.log(s1 === s2); // false
+
+    // Symbol.for 创建
+    let s3 = Symbol.for("白卿儿");
+    let s4 = Symbol.for("白卿儿");
+    // console.log(typeof s3, s3 === s4); // symbol true
+    let s5 = Symbol.for();
+    let s6 = Symbol.for();
+    console.log(s5 === s6); // true
+</script>
+</html>

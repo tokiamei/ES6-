@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的解构赋值</title>
+</head>
+<body>
+    <script>
+        /* 赋值，注意赋的是值，不是键
+            - 可以只取其中某几个值，不需要全部都取出来
+        */
+        const obj = { name: "混沌魔君", age: 60 }
+        const { name: HisName, age: HisAge } = obj
+        console.log(HisName, HisAge);
+    </script>
+</body>
+</html>
